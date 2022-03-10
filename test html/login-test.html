@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login test</title>
+    <link rel="stylesheet" href="../public/styles/login.css">
+</head>
+<body>
+    <div class="login-wrap">
+        <div class="login-html">
+            <!-- sign in and sign up toggle -->
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+
+            <!--Sign in section-->
+            <div class="login-form">
+                <form action="" id="login-form">
+                  <div class="sign-in-htm">
+                    <div class="group">
+                        <!-- <label for="user" class="label"></label> -->
+                        <input id="username-login" type="text" class="input" placeholder="Username">
+                    </div>
+                    <div class="group">
+                        <!-- <label for="pass" class="label"></label> -->
+                        <input id="password-login" type="password" class="input" data-type="password" placeholder="Password">
+                    </div>
+                    <div class="group">
+                        <button id="login-btn" type="submit" class="btn">Login</button>
+                    </div>
+                </form>
+                    <div class="hr"></div>
+                    <h3>Plant Pal</h3>
+                </div>
+
+              <!--Sign up section-->
+                <div class="sign-up-htm">
+                  <form action="" id="signup-form">
+                    <div class="group">
+                        <!-- <label for="user" class="label"></label> -->
+                        <input id="username-signup" type="text" class="input" placeholder="Username">
+                    </div>
+                    <div class="group">
+                        <!-- <label for="email" class="label"></label> -->
+                        <input id="email-signup" type="text" class="input" data-type="email" placeholder="Email Address">
+                    </div>
+                    <div class="group">
+                        <!-- <label for="pass" class="label"></label> -->
+                        <input id="password-signup" type="password" class="input" data-type="password" placeholder="Password">
+                    </div>
+                    <!-- <div class="group">
+                        <label for="pass" class="label"></label>
+                        <input id="city-signup" type="text" class="input" placeholder="city ">
+                    </div> -->
+                    <div class="group">
+                        <button id="signup-btn" type="submit" class="btn">Sign Up</button>
+                    </div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already a Member?</a>
+                            </label>
+                    </div>
+                    <h3>Plant Pal</h3>
+                    <div class="hr"></div>
+
+                    </div>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../public/javascript/login.js"></script>
+<script src="../public/javascript/signup.js"></script>
+</html>
