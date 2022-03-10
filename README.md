@@ -1,7 +1,4 @@
 # Plant Pal
-
-A brief description of what this project does and who it's for
-Plant Pal 
 The best way to take care of your leafy friends!
 
 ## Authors
@@ -16,6 +13,7 @@ The best way to take care of your leafy friends!
 ## User Story
 I am a plant owner who frequently forgets to water my houseplants. I need an application to remind me, and also show me the type of plants I have.
 I would also like to interact with other plant owners, share growing ideas, and shop for local plant items.
+
 ## Technologies Used
 - Handlebars.js
 - Node.js
