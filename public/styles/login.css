@@ -15,8 +15,8 @@ h3 {
 }
 
 .btn {
-	color: white;
-	background-color: #1161ee;
+	color: #143c13;
+	background-color: #b6d1b6;
 	width: 100%;
 	display:block;
 	cursor: pointer;
@@ -27,7 +27,7 @@ h3 {
 }
 
 .btn:hover {
-	background-color: #2600ff;
+	background-color: #f08f32;
 }
 
 .login-wrap{
@@ -36,7 +36,9 @@ h3 {
 	max-width:525px;
 	min-height:610px;
 	position:relative;
-	background:url(https://i.postimg.cc/7L2W0Yrc/maarten-deckers-a7-MQv3-TBv-Ok-unsplash.jpg) no-repeat center;
+	/* background:url(https://i.postimg.cc/7L2W0Yrc/maarten-deckers-a7-MQv3-TBv-Ok-unsplash.jpg) no-repeat center; */
+	background-color: #f8e1d9;
+	background: linear-gradient(#f8e1d9, #f0b19b);
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 	font:600 16px/18px 'Open Sans',sans-serif;
 	color:black;
@@ -47,7 +49,7 @@ h3 {
 	height:90%;
 	position:absolute;
 	padding:90px 70px 50px 70px;
-	background:rgba(183,210,182, .6);
+
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
@@ -82,10 +84,10 @@ h3 {
 }
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
-	color: white;
+	color: #143c13;
 	padding: 15px;
 	border-radius: 17px;
-	background-color: #2600ff;
+	background-color: #b6d1b6;
 	cursor: pointer;
 }
 .login-form{
@@ -121,7 +123,7 @@ h3 {
 	font-size:12px;
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:#f0d8b6;
 }
 .login-form .group label .icon{
 	width:15px;
