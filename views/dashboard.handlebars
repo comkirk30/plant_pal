@@ -1,0 +1,35 @@
+{{!-- 
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+ --}}
+
+<a href="/dashboard/create">Add a New Plant</a>
+
+{{#if plants.length}}
+<section>
+  <h2>Your Plants</h2>
+    <div class="multiple-items" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
+      {{#each plants as |plant|}}
+      <article class="card">
+        <a href="/plant/{{id}}">
+          <h3 class="card-header">{{name}}</h3>
+          {{!-- TODO: Add in image --}}
+          <p>Type: {{category}}</p>
+          <p>Recommended Sunlight: {{sunlight}}</p>
+          <p>Recommended Water: {{water}}</p>
+          <p>Last Watered: {{date_water}}</p>
+        </a>
+        <a href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+      </article>
+      {{/each}}
+    </div>
+</section>
+{{/if}}
+
+<script src="/js/slick.js"></script>
+
+{{!-- 
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+ --}}
