@@ -1,8 +1,8 @@
-const { Plant } 
+const { Plant } = require();
 
 const plantData = [{
     name: 'Salazar Syltherin',
-    sunlight: 'partial',
+    sunlight: 'partial shade',
     water: '5 drops daily',
     date_water: 03/08/2022,
     user_id: 1,
