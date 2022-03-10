@@ -29,6 +29,7 @@
     "jest": "^27.5.1",
     "mysql2": "^2.3.3",
     "node": "^17.5.0",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "slick-carousel": "^1.8.1"
   }
 }
