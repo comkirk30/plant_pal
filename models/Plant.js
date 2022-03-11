@@ -43,14 +43,14 @@ Plant.init(
         key: 'id'
       }
     },
-    // plant type
-    category_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
-      }
-    },
+    // plant type as a category
+    // category_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'category',
+    //     key: 'id'
+    //   }
+    // },
     // TODO: Add column for image of plant 
   },
   {
