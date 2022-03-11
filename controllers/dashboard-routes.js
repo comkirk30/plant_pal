@@ -41,7 +41,13 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-router.get('/:id', (req, res) => {
+
+
+router.get('/new-profile', (req, res) => {
+    res.render('new-plant-profile');
+});
+
+router.get('/new-profile/:id', (req, res) => {
     Plant.findOne({
             where: {
                 id: req.params.id
