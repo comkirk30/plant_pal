@@ -1,21 +1,17 @@
 # Plant Pal
-
-A brief description of what this project does and who it's for
-Plant Pal 
 The best way to take care of your leafy friends!
-
-## Authors
-
-- Thom Burt
-- Jason Moore
-- Emily Darr
-- Ben Sharpe
-- Courtney Martin
 
 
 ## User Story
 I am a plant owner who frequently forgets to water my houseplants. I need an application to remind me, and also show me the type of plants I have.
 I would also like to interact with other plant owners, share growing ideas, and shop for local plant items.
+
+## Features
+- Reminders to water your plants, how much sun they need
+- Know your plant type
+- Connect with other plant lovers
+- Find local plant nurserys
+
 ## Technologies Used
 - Handlebars.js
 - Node.js
@@ -33,4 +29,11 @@ To deploy this project run
 ```
 
 
-## Features
+
+## Authors
+
+- Thom Burt
+- Jason Moore
+- Emily Darr
+- Ben Sharpe
+- Courtney Martin
