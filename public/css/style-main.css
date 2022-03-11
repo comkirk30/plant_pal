@@ -30,7 +30,7 @@ header {
   margin: 0;
 }
 
-img {
+.header-img {
   height: 800px;
   display: block;
   margin-left: auto;
