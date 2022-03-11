@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       'sunlight',
       'water',
       'date_water',
+      'plant_img'
 
     ],
     include: [
@@ -57,7 +58,8 @@ router.get('/plants/:id', (req, res) => {
       'name',
       'sunlight',
       'water',
-      'date_water'
+      'date_water',
+      'plant_img'
     ],
     include: [
       // {

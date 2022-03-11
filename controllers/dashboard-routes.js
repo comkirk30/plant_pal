@@ -13,7 +13,8 @@ router.get('/', withAuth, (req, res) => {
                 'name',
                 'sunlight',
                 'water',
-                'date_water'
+                'date_water',
+                'plant_img'
             ],
             include: [
                 // {
@@ -47,7 +48,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'name',
                 'sunlight',
                 'water',
-                'date_water'
+                'date_water',
+                'plant_img'
             ],
             include: [{
                     model: User,
@@ -163,7 +165,7 @@ router.get('/create', withAuth, async (req, res) => {
         where: {
           user_id: req.session.user_id,
         },
-        attributes: ['id', 'name', 'sunlight', 'water', 'date_water'],
+        attributes: ['id', 'name', 'sunlight', 'water', 'date_water', 'plant_img'],
         include: [
           {
             model: User,
