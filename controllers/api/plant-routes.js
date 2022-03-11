@@ -6,7 +6,8 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     console.log('======================');
     Plant.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'name',
                 'sunlight',
                 'water',
