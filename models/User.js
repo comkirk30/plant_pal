@@ -5,14 +5,13 @@ const bcrypt = require('bcrypt');
 // create our User model
 class User extends Model {
   // set up method to run on instance data (per user) to check password
-  // checkPassword(loginPw) {
-  //   return bcrypt.compareSync(loginPw, this.password);
-  // }
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
 User.init(
   {
-
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -44,7 +43,7 @@ User.init(
     },
     // for zip code - can change to City name
     location: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     }
   },

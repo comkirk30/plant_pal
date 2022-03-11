@@ -35,11 +35,6 @@ Plant.init(
         isDate: true
       }
     },
-    // plant image
-    post_img: {
-      type: DataTypes.BLOB,
-      allowNull: false
-    }, 
     // plant owner id
     user_id: {
       type: DataTypes.INTEGER,
@@ -48,15 +43,15 @@ Plant.init(
         key: 'id'
       }
     },
-    // plant type
-    category_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
-      }
-    },
-  
+    // plant type as a category
+    // category_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'category',
+    //     key: 'id'
+    //   }
+    // },
+    // TODO: Add column for image of plant 
   },
   {
     sequelize,
