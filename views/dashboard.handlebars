@@ -1,35 +1,91 @@
-{{!-- 
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
- --}}
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".regular").slick({
+                dots: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+        });
+  </script>
+</head>
 
-<a href="/dashboard/create">Add a New Plant</a>
-
-{{#if plants.length}}
-<section>
-  <h2>Your Plants</h2>
-    <div class="multiple-items" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
+{{!-- CAROUSEL WILL ONLY APPEAR WHEN THERE ARE MORE THAN 3 CARDS(plants) --}}
+<body>
+  <section class="full-width">
+    <a class="add-plant-btn" href="/dashboard/create">Add a New Plant</a>
+    
+    {{#if plants.length}}
+    <section class="regular slider">
       {{#each plants as |plant|}}
-      <article class="card">
-        <a href="/plant/{{id}}">
-          <h3 class="card-header">{{name}}</h3>
-          {{!-- TODO: Add in image --}}
-          <p>Type: {{category}}</p>
-          <p>Recommended Sunlight: {{sunlight}}</p>
-          <p>Recommended Water: {{water}}</p>
-          <p>Last Watered: {{date_water}}</p>
-        </a>
-        <a href="/dashboard/edit/{{plant.id}}">Edit plant</a>
-      </article>
+      <div class="card">
+          <a href="/plants/{{id}}">
+            <h3 class="card-header">{{name}}</h3> 
+            <img src="https://picsum.photos/500/300">
+          </a>
+          <p class="card-body">
+            <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+          </p>
+      </div>
       {{/each}}
-    </div>
-</section>
-{{/if}}
+    </section>
+    {{/if}}
 
-<script src="/js/slick.js"></script>
+{{!-- THIS IS THE HARD-CODED VERSION - UNCOMMENT FOR TESTING --}}
+    {{!-- <section class="regular slider">
+      <div class="card">
+        <a href="/plants/{{id}}">
+          <h3 class="card-header">Salazar</h3> 
+          <img src="https://picsum.photos/500/300">
+        </a>
+        <p class="card-body">
+          <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+        </p>
+      </div>
+      <div class="card">
+        <a href="/plants/{{id}}">
+          <h3 class="card-header">Vincent Van Grow</h3> 
+          <img src="https://picsum.photos/500/300">
+        </a>
+        <p class="card-body">
+          <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+        </p>
+      </div>
+      <div class="card">
+        <a href="/plants/{{id}}">
+          <h3 class="card-header">Patty Pothos</h3> 
+          <img src="https://picsum.photos/500/300">
+        </a>
+        <p class="card-body">
+          <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+        </p>
+      </div>
+            <div class="card">
+        <a href="/plants/{{id}}">
+          <h3 class="card-header">Leaf Erikson</h3> 
+          <img src="https://picsum.photos/500/300">
+        </a>
+        <p class="card-body">
+          <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+        </p>
+      </div>
+      <div class="card">
+        <a href="/plants/{{id}}">
+          <h3 class="card-header">Moira Rose</h3> 
+          <img src="https://picsum.photos/500/300">
+        </a>
+        <p class="card-body">
+          <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+        </p>
+      </div>
 
-{{!-- 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
- --}}
+    </section> --}}
+
+  </section>
+</body>

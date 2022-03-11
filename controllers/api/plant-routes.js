@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Plant, User } = require('../../models');
+const { Plant, User, Category } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -37,6 +37,45 @@ router.get('/', (req, res) => {
         });
 
 });
+
+router.get('/:id', (req, res) => {
+    Plant.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'name',
+        'sunlight',
+        'water',
+        'date_water'
+      ],
+      include: [
+        // {
+        //   model: Category,
+        //   attributes: ['name'],
+        // },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    })
+      .then(dbPlantData => {
+        if (!dbPlantData) {
+          res.status(404).json({ message: 'No plant found with this id' });
+          return;
+        }
+        res.json(dbPlantData);
+        // const plant = dbPlantData.get({ plain: true });
+  
+        // res.render('single-plant', { plant, loggedIn: req.session.loggedIn });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 // router.get('/:id', (req, res) => {
 //     Post.findOne({
