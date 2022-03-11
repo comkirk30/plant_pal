@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Pal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/login.css">
+  <link rel="stylesheet" href="/css/style-main.css"> 
+
+</head>
+
+<body>
+    <header>
+       {{#if loggedIn}}
+         <img class="header-img" src="/images/Plant_Pal_Logo-A-removebg.png">
+         {{/if}}
+    </header>
+
+      <nav>
+            <a href="/">Home</a>
+            <!-- If the user is logged in, show a dashboard link and a logout button -->
+            {{#if loggedIn}}
+            <a href="/dashboard">My Dashboard</a>
+            <button id="logout" class="btn-nav">Logout</button>
+            {{else}}
+            <!-- Otherwise, show a link to login -->
+              <a href="/login">Login</a>
+            {{/if}}
+      </nav>
+
+  <main>
+        {{{ body }}}
+                   {{!-- {{#if loggedIn}} --}}
+     <img src="/images/plantanimation.gif"/>
+     {{!-- <img src="/images/pp-new.gif"/> --}}
+                 {{!-- {{/if}} --}}
+ 
+       {{!-- <img class="header-img" src="/images/Plant_Pal_Logo-A-removebg.png"> --}}
+  </main>
+
+  <!-- If the user is logged in, load the JS script for when they logout -->
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
