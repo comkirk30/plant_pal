@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
 
+
 // sets up an Express.js session and connects the session to our Sequelize Database
 const session = require('express-session');
 
