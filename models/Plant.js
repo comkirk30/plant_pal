@@ -35,6 +35,10 @@ Plant.init(
         isDate: true
       }
     },
+    plant_img: {
+      type: DataTypes.BLOB,
+      allowNull: false,
+    },
     // plant owner id
     user_id: {
       type: DataTypes.INTEGER,

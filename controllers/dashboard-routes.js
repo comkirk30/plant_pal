@@ -40,6 +40,52 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+
+
+router.get('/new-profile', (req, res) => {
+    res.render('new-plant-profile');
+});
+
+router.get('/new-profile/:id', (req, res) => {
+    Plant.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: ['id',
+            'id',
+            'name',
+            'sunlight',
+            'water',
+            'date_water',
+            'plant_img'
+            ],
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                },
+                // {
+                //     model: Comment,
+                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                //     include: {
+                //         model: User,
+                //         attributes: ['username']
+                //     }
+                // }
+            ]
+        })
+        .then(dbPlantData => {
+            if (!dbPlantData) {
+                res.status(404).json({ message: 'No plant found with this id' });
+                return;
+            }
+            res.json(dbPlantData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 // router.get('/edit/:id', withAuth, (req, res) => {
 //     Post.findOne({
 //             where: {
