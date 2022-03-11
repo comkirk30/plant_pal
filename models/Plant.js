@@ -51,7 +51,11 @@ Plant.init(
     //     key: 'id'
     //   }
     // },
-    // TODO: Add column for image of plant 
+ 
+    plant_img: {
+      type: DataTypes.BLOB,
+      allowNull: false
+    }
   },
   {
     sequelize,
