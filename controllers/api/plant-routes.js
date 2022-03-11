@@ -49,7 +49,7 @@ router.get('/:id', (req, res) => {
         'sunlight',
         'water',
         'date_water',
-        'plant_img'
+        // 'plant_img'
       ],
       include: [
         // {
