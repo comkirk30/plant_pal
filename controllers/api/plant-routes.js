@@ -67,10 +67,23 @@ router.get('/:id', (req, res) => {
           return;
         }
         res.json(dbPlantData);
-        // const plant = dbPlantData.get({ plain: true });
-  
-        // res.render('single-plant', { plant, loggedIn: req.session.loggedIn });
       })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+});
+
+router.post('/', withAuth, (req, res) => {
+  
+    Post.create({
+      name: req.body.name,
+      sunllight: req.body.sunlight,
+      water: req.body.water,
+      date_water: req.body.date_water,
+      plant_img: req.body.plant_img
+    })
+      .then(dbPostData => res.json(dbPostData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

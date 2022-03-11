@@ -6,27 +6,23 @@
             <label for="profile-name">Plant Name</label>
             <input type="text" id="profile-name" size="60" name="profile-name" />
         </div>
-        <div class="dropdown">
+        <div>
             <label for="plant-sun">Recommended Sunlight</label>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="plant-sun" data-bs-toggle="dropdown" name="plant-sun">
-                Choose the amount of Sunlight
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Full</a></li>
-                <li><a class="dropdown-item" href="#">Partial</a></li>
-                <li><a class="dropdown-item" href="#">Shade</a></li>
-            </ul>
+            <select name="plant-sun" id="plant-sun">
+                <option selected>Pick an option</option>
+                <option value="Full">Full</option>
+                <option value="Partial">Partial</option>
+                <option value="Shade">Shade</option>
+            </select>
         </div>
-        <div class="dropdown">
+        <div>
             <label for="plant-water">Recommended Water</label>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="plant-water" data-bs-toggle="dropdown" name="plant-water">
-                Choose the amount of Water
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Daily</a></li>
-                <li><a class="dropdown-item" href="#">Bi-Weekly</a></li>
-                <li><a class="dropdown-item" href="#">Weekly</a></li>
-            </ul>
+            <select name="plant-water" id="plant-water">
+                <option selected>Pick an option</option>
+                <option value="Daily">Daily</option>
+                <option value="Bi-Weekly">Bi-Weekly</option>
+                <option value="Weekly">Weekly</option>
+            </select>
         </div>
         <div>
             <label for="water-date">Last Water Date</label>
@@ -41,4 +37,4 @@
     </form>
 </section>
 
-<script src="/js/add-post.js"></script>
+<script src="/js/add-profile.js"></script>
