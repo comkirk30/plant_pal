@@ -6,7 +6,8 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     console.log('======================');
     Plant.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'name',
                 'sunlight',
                 'water',
@@ -37,22 +38,6 @@ router.get('/', (req, res) => {
         });
 
 });
-
-router.post('/', withAuth, (req, res) => {
-  
-    Post.create({
-      name: req.body.name,
-      sunllight: req.body.sunlight,
-      water: req.body.water,
-      date_water: req.body.date_water,
-      plant_img: req.body.plant_img
-    })
-      .then(dbPostData => res.json(dbPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
 
 // router.get('/:id', (req, res) => {
 //     Post.findOne({
