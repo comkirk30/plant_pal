@@ -18,12 +18,9 @@ router.get('/', withAuth, (req, res) => {
             ],
             include: [
                 // {
-                //     model: Comment,
-                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                //     include: {
-                //         model: User,
-                //         attributes: ['username']
-                //     }
+                //     model: Category,
+                //     attributes: ['name'],
+
                 // },
                 {
                     model: User,
@@ -41,7 +38,39 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+router.get('/edit/:id', withAuth, (req, res) => {
+    Plant.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'id',
+                'name',
+                'sunlight',
+                'water',
+                'date_water',
+                'plant_img'
+            ],
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        .then(dbPlantData => {
+            if (!dbPlantData) {
+                res.status(404).json({ message: 'No plant found with this id' });
+                return;
+            }
 
+            const plant = dbPlantData.get({ plain: true });
+            res.render('edit-plant-profile', { plant, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
 
 router.get('/new-profile', (req, res) => {
     res.render('new-plant-profile');
@@ -126,10 +155,32 @@ router.get('/new-profile/:id', (req, res) => {
 //         });
 // })
 
-// router.get('/new', (req, res) => {
-//     res.render('new-post');
-// });
+router.get('/new', (req, res) => {
+    res.render('new-post');
+});
 
-
+router.get('/create', withAuth, async (req, res) => {
+    try{
+      const plantData = await Plant.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+        attributes: ['id', 'name', 'sunlight', 'water', 'date_water', 'plant_img'],
+        include: [
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+      });
+      const plants = plantData.map(plant => plant.get({ plain: true }));
+      res.render('new-plant-profile', {
+        plants, 
+        loggedIn: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

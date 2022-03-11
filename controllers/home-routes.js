@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Plant, User, Category } = require('../models');
 
-// get all posts for homepage
+// get all plants for homepage
 router.get('/', (req, res) => {
   Plant.findAll({
     attributes: [
@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       'sunlight',
       'water',
       'date_water',
+      // 'plant_img'
 
     ],
     include: [
@@ -51,47 +52,43 @@ router.get('/stores', (req, res) => {
 //   res.render('signup');
 // });
 
-// get single post
-// router.get('/post/:id', (req, res) => {
-//   Post.findOne({
-//     where: {
-//       id: req.params.id
-//     },
-//     attributes: [
-//       'id',
-//       'post_text',
-//       'title',
-//       'created_at'
-//     ],
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//         include: {
-//           model: User,
-//           attributes: ['username']
-//         }
-//       },
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]
-//   })
-//     .then(dbPostData => {
-//       if (!dbPostData) {
-//         res.status(404).json({ message: 'No post found with this id' });
-//         return;
-//       }
+router.get('/plants/:id', (req, res) => {
+  Plant.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'name',
+      'sunlight',
+      'water',
+      'date_water',
+      // 'plant_img'
+    ],
+    include: [
+      // {
+      //   model: Category,
+      //   attributes: ['name'],
+      // },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPlantData => {
+      if (!dbPlantData) {
+        res.status(404).json({ message: 'No plant found with this id' });
+        return;
+      }
+      const plant = dbPlantData.get({ plain: true });
 
-//       const post = dbPostData.get({ plain: true });
-
-//       res.render('single-post', { post, loggedIn: req.session.loggedIn });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+      res.render('single-plant', { plant, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

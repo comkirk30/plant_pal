@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Plant, User } = require('../../models');
+const { Plant, User, Category } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -38,6 +38,59 @@ router.get('/', (req, res) => {
         });
 
 });
+
+router.get('/:id', (req, res) => {
+    Plant.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'name',
+        'sunlight',
+        'water',
+        'date_water',
+        // 'plant_img'
+      ],
+      include: [
+        // {
+        //   model: Category,
+        //   attributes: ['name'],
+        // },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    })
+      .then(dbPlantData => {
+        if (!dbPlantData) {
+          res.status(404).json({ message: 'No plant found with this id' });
+          return;
+        }
+        res.json(dbPlantData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+});
+
+router.post('/', withAuth, (req, res) => {
+  
+    Post.create({
+      name: req.body.name,
+      sunllight: req.body.sunlight,
+      water: req.body.water,
+      date_water: req.body.date_water,
+      plant_img: req.body.plant_img
+    })
+      .then(dbPostData => res.json(dbPostData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 // router.get('/:id', (req, res) => {
 //     Post.findOne({

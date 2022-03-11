@@ -4,6 +4,8 @@
   --tertiary: #5b695b;
   --dark: #000000;
   --test: #f89738;
+  --border-radius: .3rem;
+
 }
 
 body {
@@ -92,3 +94,78 @@ nav a:hover {
   align-content: flex-start;
   align-items: center;
 } */ 
+
+/*  IMAGE CARDS FOR CAROUSEL */
+.card {
+  margin: 20px 10px 0 10px;
+  border: 4px solid var(--tertiary);
+  border-radius: var(--border-radius);
+}
+
+.card-header {
+  color: var(--primary);
+  text-decoration: none;
+  background-color: var(--tertiary);
+  padding: 2%;
+  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+}
+
+.card-body {
+  padding: 2.5%;
+  color: white;
+  background-color: var(--tertiary);
+  font-size: 16px;
+  margin: 0;
+}
+
+.slick-slide img{
+  width:100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.edit-btn {
+  border-radius: var(--border-radius);
+  color: var(--tertiary);
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  display: inline-block;
+  width: auto;
+  margin-top: 5px;
+  margin-left: 2px;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.edit-btn:hover {
+  color: var(--tertiary);
+  background-color: var(--secondary);
+}
+
+.add-plant-btn {
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  background-color: var(--tertiary);
+  display: inline-block;
+  width: auto;
+  margin: 10px;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.add-plant-btn:hover {
+  color: var(--tertiary);
+  background-color: var(--secondary);
+}
+
+.mw-50 {
+  max-width: 50%;
+  margin: 10px auto;
+}
