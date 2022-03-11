@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Plant, User, Category } = require('../../models');
+const { Plant, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
                 'name',
                 'sunlight',
                 'water',
-                'date_water'
+                'date_water',
+                'plant_img'
             ],
             order: [
                 ['created_at', 'DESC']

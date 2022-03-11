@@ -1,22 +1,36 @@
 <section>
     <h2>Create New Profile</h2>
 
-    <form class="new-plant-form">
+    <form class="new-profile-form">
         <div>
             <label for="profile-name">Plant Name</label>
             <input type="text" id="profile-name" size="60" name="profile-name" />
         </div>
-        <div>
+        <div class="dropdown">
             <label for="plant-sun">Recommended Sunlight</label>
-            <input type="text" id="plant-sun" size="60" name="plant-sun" />
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="plant-sun" data-bs-toggle="dropdown" name="plant-sun">
+                Choose the amount of Sunlight
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Full</a></li>
+                <li><a class="dropdown-item" href="#">Partial</a></li>
+                <li><a class="dropdown-item" href="#">Shade</a></li>
+            </ul>
         </div>
-        <div>
+        <div class="dropdown">
             <label for="plant-water">Recommended Water</label>
-            <input type="text" id="plant-water" size="60" name="plant-water" />
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="plant-water" data-bs-toggle="dropdown" name="plant-water">
+                Choose the amount of Water
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Daily</a></li>
+                <li><a class="dropdown-item" href="#">Bi-Weekly</a></li>
+                <li><a class="dropdown-item" href="#">Weekly</a></li>
+            </ul>
         </div>
         <div>
             <label for="water-date">Last Water Date</label>
-            <input type="text" id="water-date" size="60" name="water-date" />
+            <input type="date" id="water-date" name="water-date">
         </div>
         <div>
             <label for="post-img">Image</label>
