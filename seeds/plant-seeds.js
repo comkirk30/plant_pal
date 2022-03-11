@@ -45,4 +45,4 @@ const plantData = [{
 
 const seedPlants = () => Plant.bulkCreate(plantData);
 
-module.exports = seedPlants; 
+module.exports = seedPlants;
