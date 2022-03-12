@@ -44,13 +44,8 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/stores', (req, res) => {
-  res.render('yelp');
+  res.render('search-store', { loggedIn: req.session.loggedIn });
 });
-
-// signup page
-// router.get('/signup', (req, res) => {
-//   res.render('signup');
-// });
 
 router.get('/plants/:id', (req, res) => {
   Plant.findOne({
