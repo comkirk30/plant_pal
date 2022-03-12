@@ -35,29 +35,33 @@ buttonEl.addEventListener("click", function () {
               return response.json();
       })
       .then(function (data) {
-      console.log(data.businesses);
-      let shopList = data.businesses.slice(0, 20);
-
-
-      for (var i = 0; i < shopList.length; i++) {
-            
-        let businessName = shopList[i].name;
-        let businessURL = shopList[i].url;
-
-        let li = document.createElement("li");
-
-        let aText = document.createElement("a");
-        aText.innerText = businessName;
-        li.setAttribute("style", "padding: 5px; background-color: #225ca3; border-radius: 5px; color:white; font-size:20px; width:50%; cursor:pointer; margin:20px;");
-        aText.href = businessURL;
-
-        let listEl = document.querySelector("#list");
-        listEl.appendChild(li);
-        li.appendChild(aText);
-      }
-    })
-});
-
+        console.log(data.businesses);
+        let shopList = data.businesses.slice(0, 20);
+  
+  
+        for (var i = 0; i < shopList.length; i++) {
+              
+          let businessName = shopList[i].name;
+          let businessURL = shopList[i].url;
+          const rating = shopList[i].rating;
+  
+          let li = document.createElement("li");
+          let ratingImg = document.createElement("img");
+          ratingImg.src = `/img/yelp-stars/${rating}.png`;
+  
+          let aText = document.createElement("a");
+          aText.innerText = businessName;
+          li.setAttribute("style", "list-style: none; padding: 5px; background-color: #225ca3; border-radius: 5px; color:white; font-size:20px; width:100%; cursor:pointer; margin:20px;");
+          aText.href = businessURL;
+  
+          let listEl = document.querySelector("#list");
+          listEl.appendChild(li);
+          li.appendChild(aText);
+          li.appendChild(ratingImg);
+      
+        }
+      })
+  });
 
 //https://cors-anywhere.herokuapp.com/
 
