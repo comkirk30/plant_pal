@@ -2,7 +2,7 @@ async function newFormHandler(event) {
     event.preventDefault();
 
 
-    const name = document.querySelector('input[name="post-title"]').value;
+    const name = document.querySelector('input[name="profile-name"]').value;
     const sunRec = document.querySelector('input[name="plant-sun"]').value;
     const waterRec = document.querySelector('input[name="plant-water"]').value;
     const waterDat = document.querySelector('input[name="water-date"]').value;
@@ -27,4 +27,4 @@ async function newFormHandler(event) {
     }
 };
 
-document.querySelector('.new-profile-form').addEventListener('submit', newFormHandler)
+document.querySelector('.new-plant-profile-form').addEventListener('submit', newFormHandler)

@@ -80,7 +80,7 @@ router.post('/', withAuth, (req, res) => {
   
     Post.create({
       name: req.body.name,
-      sunllight: req.body.sunlight,
+      sunlight: req.body.sunlight,
       water: req.body.water,
       date_water: req.body.date_water,
       plant_img: req.body.plant_img
