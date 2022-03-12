@@ -72,11 +72,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 })
 
-router.get('/new-profile', (req, res) => {
+router.get('/profile', (req, res) => {
     res.render('new-plant-profile');
 });
 
-router.get('/new-profile/:id', (req, res) => {
+router.get('/profile/:id', (req, res) => {
     Plant.findOne({
             where: {
                 id: req.params.id
@@ -155,8 +155,8 @@ router.get('/new-profile/:id', (req, res) => {
 //         });
 // })
 
-router.get('/new', (req, res) => {
-    res.render('new-post');
+router.get('/newprofile', (req, res) => {
+    res.render('new-plant-profile');
 });
 
 router.get('/create', withAuth, async (req, res) => {
