@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Plant, User, Category } = require('../models');
+const { Plant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', withAuth, (req, res) => {
                 'sunlight',
                 'water',
                 'date_water',
-                'plant_img'
+                // 'plant_img'
             ],
             include: [
                 // {
@@ -155,32 +155,39 @@ router.get('/profile/:id', (req, res) => {
 //         });
 // })
 
-router.get('/newprofile', (req, res) => {
+router.get('/create', (req, res) => {
     res.render('new-plant-profile');
 });
 
-router.get('/create', withAuth, async (req, res) => {
-    try{
-      const plantData = await Plant.findAll({
-        where: {
-          user_id: req.session.user_id,
-        },
-        attributes: ['id', 'name', 'sunlight', 'water', 'date_water', 'plant_img'],
-        include: [
-          {
-            model: User,
-            attributes: ['username']
-          }
-        ]
-      });
-      const plants = plantData.map(plant => plant.get({ plain: true }));
-      res.render('new-plant-profile', {
-        plants, 
-        loggedIn: true
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+// router.get('/create', withAuth, async (req, res) => {
+//     try{
+//       const plantData = await Plant.findAll({
+//         where: {
+//           user_id: req.session.user_id,
+//         },
+//         attributes: [
+//             'id', 
+//             'name',
+//             'sunlight', 
+//             'water', 
+//             'date_water', 
+//             // 'plant_img'
+//         ],
+//         include: [
+//           {
+//             model: User,
+//             attributes: ['username']
+//           }
+//         ]
+//       });
+//       const plants = plantData.map(plant => plant.get({ plain: true }));
+//       res.render('new-plant-profile', {
+//         plants, 
+//         loggedIn: true
+//       });
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 module.exports = router;
