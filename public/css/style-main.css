@@ -175,3 +175,44 @@ nav a:hover {
   width: 100%;
   bottom: 0%;
 }
+
+.store-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.store-title {
+  text-decoration: underline;
+  color: var(--tertiary);; 
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: normal; 
+  line-height: 48px; 
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.store-search-btn {
+  margin-top: 10px;
+  width: 100%;
+  background-color: var(--test);
+  border: 0;
+  border-radius: 100px;
+  color: var(--dark);
+  cursor: pointer;
+  line-height: 20px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+  .store-search-btn:hover {
+    background-color: var(--tertiary);
+    color: var(--primary);
+  }
+
+  .store-form {
+    border-radius: 10px;
+    border: var(--primary) solid 1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }

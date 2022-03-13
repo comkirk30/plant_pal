@@ -48,10 +48,11 @@ buttonEl.addEventListener("click", function () {
           let li = document.createElement("li");
           let ratingImg = document.createElement("img");
           ratingImg.src = `/img/yelp-stars/${rating}.png`;
+          ratingImg.setAttribute("style", "width: 25%; float: right; ")
   
           let aText = document.createElement("a");
           aText.innerText = businessName;
-          li.setAttribute("style", "list-style: none; padding: 5px; background-color: #225ca3; border-radius: 5px; color:white; font-size:20px; width:100%; cursor:pointer; margin:20px;");
+          li.setAttribute("style", "list-style: none; padding: 5px; background-color: #FFFDD0; border-radius: 5px; color: #5b695b; font-size:20px; width:100%; cursor:pointer; margin-top:20px; margin-bottom:20px;");
           aText.href = businessURL;
   
           let listEl = document.querySelector("#list");
