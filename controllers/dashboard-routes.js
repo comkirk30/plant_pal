@@ -13,16 +13,14 @@ router.get('/', withAuth, (req, res) => {
                 'name',
                 'sunlight',
                 'water',
-                'date_water'
+                'date_water',
+                'plant_img'
             ],
             include: [
                 // {
-                //     model: Comment,
-                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                //     include: {
-                //         model: User,
-                //         attributes: ['username']
-                //     }
+                //     model: Category,
+                //     attributes: ['name'],
+
                 // },
                 {
                     model: User,
@@ -33,6 +31,84 @@ router.get('/', withAuth, (req, res) => {
         .then(dbPlantData => {
             const plants = dbPlantData.map(plant => plant.get({ plain: true }));
             res.render('dashboard', { plants, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/edit/:id', withAuth, (req, res) => {
+    Plant.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'id',
+                'name',
+                'sunlight',
+                'water',
+                'date_water',
+                'plant_img'
+            ],
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        .then(dbPlantData => {
+            if (!dbPlantData) {
+                res.status(404).json({ message: 'No plant found with this id' });
+                return;
+            }
+
+            const plant = dbPlantData.get({ plain: true });
+            res.render('edit-plant-profile', { plant, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
+router.get('/profile', (req, res) => {
+    res.render('new-plant-profile');
+});
+
+router.get('/profile/:id', (req, res) => {
+    Plant.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: ['id',
+            'id',
+            'name',
+            'sunlight',
+            'water',
+            'date_water',
+            'plant_img'
+            ],
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                },
+                // {
+                //     model: Comment,
+                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                //     include: {
+                //         model: User,
+                //         attributes: ['username']
+                //     }
+                // }
+            ]
+        })
+        .then(dbPlantData => {
+            if (!dbPlantData) {
+                res.status(404).json({ message: 'No plant found with this id' });
+                return;
+            }
+            res.json(dbPlantData);
         })
         .catch(err => {
             console.log(err);
@@ -79,10 +155,32 @@ router.get('/', withAuth, (req, res) => {
 //         });
 // })
 
-// router.get('/new', (req, res) => {
-//     res.render('new-post');
-// });
+router.get('/newprofile', (req, res) => {
+    res.render('new-plant-profile');
+});
 
-
+router.get('/create', withAuth, async (req, res) => {
+    try{
+      const plantData = await Plant.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+        attributes: ['id', 'name', 'sunlight', 'water', 'date_water', 'plant_img'],
+        include: [
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+      });
+      const plants = plantData.map(plant => plant.get({ plain: true }));
+      res.render('new-plant-profile', {
+        plants, 
+        loggedIn: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
