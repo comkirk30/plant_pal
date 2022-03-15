@@ -1,6 +1,9 @@
 # Plant Pal
 The best way to take care of your leafy friends!
 
+# Temporary YELP API access
+https://cors-anywhere.herokuapp.com/
+
 ## User Story
 AS A plant owner
 I WANT to keep track of the plants I own and when to water them
