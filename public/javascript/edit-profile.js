@@ -1,23 +1,21 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const name = document.querySelector('input[name="post-title"]').value;
-    const sunRec = document.querySelector('input[name="plant-sun"]').value;
-    const waterRec = document.querySelector('input[name="plant-water"]').value;
-    const waterDat = document.querySelector('input[name="water-date"]').value;
-    const plant_img = document.querySelector('input[name="plant-img"]').files[0].name;
+    const name = document.querySelector('input[name="profile-name"]').value;
+    //const sunlight = document.getElementById('plant-sun').value;
+    //const water = document.getElementById('plant-water').value;
+    const date_water = document.querySelector('input[name="water-date"]').value;
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/plants/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             name,
-            sunRec,
-            waterRec,
-            waterDat,
-            plant_img
+            //sunlight,
+            //water,
+            date_water        
         }),
         headers: { 'Content-Type': 'application/json' }
     });

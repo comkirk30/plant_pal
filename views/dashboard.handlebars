@@ -26,11 +26,12 @@
       {{#each plants as |plant|}}
       <div class="card">
           <a href="/plants/{{id}}">
-            <h3 class="card-header">{{name}}</h3> 
-            <img src="https://picsum.photos/500/300">
+            <h4 class="card-header">{{name}}</h4> 
+            <img src="/img/plant-icons/1.png">
           </a>
           <p class="card-body">
             <a class="edit-btn" href="/dashboard/edit/{{plant.id}}">Edit plant</a>
+            Last watered: {{format_date plant.date_water}}
           </p>
       </div>
       {{/each}}

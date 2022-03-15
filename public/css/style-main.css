@@ -45,6 +45,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  justify-content: center;
+  align-content: center;
 }
 
 main img {
@@ -108,6 +110,7 @@ nav a:hover {
   background-color: var(--tertiary);
   padding: 2%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  text-align: center;
 }
 
 .card-body {
@@ -120,6 +123,10 @@ nav a:hover {
 
 .slick-slide img{
   width:100%;
+}
+
+.slick-slide div {
+  margin: 20px 10px 0 10px;
 }
 
 .full-width {
@@ -170,6 +177,11 @@ nav a:hover {
 
 .mw-50 {
   max-width: 50%;
+  margin: 10px auto;
+}
+
+.mw-300 {
+  max-width: 300px;
   margin: 10px auto;
 }
 
