@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
-const { response } = require('express');
+// const { response } = require('express');
 // const request = require('request');
 // const yelp = require('yelp-fusion');
 
@@ -19,7 +19,7 @@ router.get('/business/:id', async (req, res) => {
     })
 });
 
-    module.exports = router;
+module.exports = router;
 
    
 /* GET users listing. */
