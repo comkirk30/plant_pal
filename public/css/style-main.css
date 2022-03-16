@@ -45,6 +45,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  justify-content: center;
+  align-content: center;
 }
 
 main img {
@@ -77,6 +79,26 @@ nav a:hover {
 
 
 .btn-nav {
+  display: flex;
+  color: var(--dark);
+  background-color: var(--test);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border: none;
+}
+
+.btn-nav:hover {
+  color: var(--tertiary);
+  background-color: var(--secondary);  
+  text-decoration: underline;
+}
+
+/* .btn-nav {
   background: none;
   border: none;
   padding: 0;
@@ -85,7 +107,8 @@ nav a:hover {
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
-}
+} */
+
 
 /* LAYOUT */
 /* .container {
@@ -108,6 +131,7 @@ nav a:hover {
   background-color: var(--tertiary);
   padding: 2%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  text-align: center;
 }
 
 .card-body {
@@ -122,8 +146,15 @@ nav a:hover {
   width:100%;
 }
 
+.slick-slide div {
+  margin: 20px 10px 0 10px;
+}
+
 .full-width {
   width: 100%;
+}
+.store-width {
+  width: 70%;
 }
 
 .edit-btn {
@@ -170,6 +201,11 @@ nav a:hover {
   margin: 10px auto;
 }
 
+.mw-300 {
+  max-width: 300px;
+  margin: 10px auto;
+}
+
 .footer-img {
   height: 10%;
   width: 100%;
@@ -179,9 +215,11 @@ nav a:hover {
 .store-container {
   margin-top: 20px;
   margin-bottom: 20px;
+
 }
 
 .store-title {
+  text-align: center;
   text-decoration: underline;
   color: var(--tertiary);; 
   font-family: 'Trocchi', serif; 

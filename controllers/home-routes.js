@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Plant, User, Category } = require('../models');
+const { Plant, User } = require('../models');
 
 // get all plants for homepage
 router.get('/', (req, res) => {
@@ -47,6 +47,7 @@ router.get('/stores', (req, res) => {
   res.render('search-store', { loggedIn: req.session.loggedIn });
 });
 
+// get a single plant and render single plant page
 router.get('/plants/:id', (req, res) => {
   Plant.findOne({
     where: {
@@ -61,10 +62,6 @@ router.get('/plants/:id', (req, res) => {
       // 'plant_img'
     ],
     include: [
-      // {
-      //   model: Category,
-      //   attributes: ['name'],
-      // },
       {
         model: User,
         attributes: ['username']

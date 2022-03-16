@@ -5,16 +5,38 @@
   </h2>
   <form class="edit-plant-form">
     <div>
-      <input name="post-title" type="text" size="60" value="{{post.title}}" />
+        <label for="profile-name">Plant Name</label>
+        <input type="text" id="profile-name" size="60" name="profile-name" value="{{plant.name}}"/>
+    </div>
+    {{!-- <div>
+        <label for="plant-sun">Recommended Sunlight</label>
+        <select name="plant-sun" id="plant-sun">
+            <option selected>Select option</option>
+            <option value="Full">Full</option>
+            <option value="Partial">Partial</option>
+            <option value="Shade">Shade</option>
+        </select>
+    </div>
+    <div>
+        <label for="plant-water">Recommended Water</label>
+        <select name="plant-water" id="plant-water">
+            <option selected>Select option</option>
+            <option value="Daily">Daily</option>
+            <option value="Bi-Weekly">Bi-Weekly</option>
+            <option value="Weekly">Weekly</option>
+        </select>
+    </div> --}}
+    <div>
+        <label for="water-date">Last Water Date</label>
+        <input type="date" id="water-date" name="water-date">
     </div>
     
     <div>
-      <button type="submit">Save Profile</button>
-      <button type="button" class="delete-profile-btn">Delete Profile</button>
+      <button type="submit">Save Plant</button>
+      <button type="button" class="delete-plant-btn">Delete Plant</button>
     </div>
   </form>
 </article>
 
-
-<script src="/js/edit-post.js"></script>
-<script src="/js/delete-post.js"></script>
+<script src="/javascript/edit-profile.js"></script>
+<script src="/javascript/delete-profile.js"></script>

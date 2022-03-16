@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Plant, User, Category } = require('../models');
+const { Plant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get all plants by that user
 router.get('/', withAuth, (req, res) => {
     Plant.findAll({
             where: {
@@ -14,14 +15,9 @@ router.get('/', withAuth, (req, res) => {
                 'sunlight',
                 'water',
                 'date_water',
-                'plant_img'
+                // 'plant_img'
             ],
             include: [
-                // {
-                //     model: Category,
-                //     attributes: ['name'],
-
-                // },
                 {
                     model: User,
                     attributes: ['username']
@@ -38,6 +34,7 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+// get one plant to edit
 router.get('/edit/:id', withAuth, (req, res) => {
     Plant.findOne({
             where: {
@@ -49,7 +46,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'sunlight',
                 'water',
                 'date_water',
-                'plant_img'
+                // 'plant_img'
             ],
             include: [{
                     model: User,
@@ -72,10 +69,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 })
 
+// TODO: Can we delete this one??
 router.get('/profile', (req, res) => {
     res.render('new-plant-profile');
 });
 
+// TODO: Can we delete this one?? I think this route exists in home-routes
 router.get('/profile/:id', (req, res) => {
     Plant.findOne({
             where: {
@@ -87,20 +86,12 @@ router.get('/profile/:id', (req, res) => {
             'sunlight',
             'water',
             'date_water',
-            'plant_img'
+            // 'plant_img'
             ],
             include: [{
                     model: User,
                     attributes: ['username']
-                },
-                // {
-                //     model: Comment,
-                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                //     include: {
-                //         model: User,
-                //         attributes: ['username']
-                //     }
-                // }
+                }
             ]
         })
         .then(dbPlantData => {
@@ -155,32 +146,40 @@ router.get('/profile/:id', (req, res) => {
 //         });
 // })
 
-router.get('/newprofile', (req, res) => {
+// dashboard/create to create new plant
+router.get('/create', (req, res) => {
     res.render('new-plant-profile');
 });
 
-router.get('/create', withAuth, async (req, res) => {
-    try{
-      const plantData = await Plant.findAll({
-        where: {
-          user_id: req.session.user_id,
-        },
-        attributes: ['id', 'name', 'sunlight', 'water', 'date_water', 'plant_img'],
-        include: [
-          {
-            model: User,
-            attributes: ['username']
-          }
-        ]
-      });
-      const plants = plantData.map(plant => plant.get({ plain: true }));
-      res.render('new-plant-profile', {
-        plants, 
-        loggedIn: true
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+// router.get('/create', withAuth, async (req, res) => {
+//     try{
+//       const plantData = await Plant.findAll({
+//         where: {
+//           user_id: req.session.user_id,
+//         },
+//         attributes: [
+//             'id', 
+//             'name',
+//             'sunlight', 
+//             'water', 
+//             'date_water', 
+//             // 'plant_img'
+//         ],
+//         include: [
+//           {
+//             model: User,
+//             attributes: ['username']
+//           }
+//         ]
+//       });
+//       const plants = plantData.map(plant => plant.get({ plain: true }));
+//       res.render('new-plant-profile', {
+//         plants, 
+//         loggedIn: true
+//       });
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 module.exports = router;

@@ -41,7 +41,6 @@ User.init(
       type: DataTypes.TEXT,
       allowNull: false
     },
-    // for zip code - can change to City name
     location: {
       type: DataTypes.STRING,
       allowNull: false,

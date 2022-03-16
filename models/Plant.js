@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Post model
+// create our Plant model
 class Plant extends Model { }
 
 // create fields/columns for Post model
@@ -42,20 +42,12 @@ Plant.init(
         model: 'user',
         key: 'id'
       }
-    },
-    // plant type as a category
-    // category_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'category',
-    //     key: 'id'
-    //   }
-    // },
- 
-    plant_img: {
-      type: DataTypes.BLOB,
-      allowNull: false
     }
+ 
+    // plant_img: {
+    //   type: DataTypes.BLOB,
+    //   allowNull: false
+    // }
   },
   {
     sequelize,

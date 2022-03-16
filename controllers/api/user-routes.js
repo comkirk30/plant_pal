@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User, Plant, Category } = require('../../models');
+const { User, Plant } = require('../../models');
 
+// Get all users
 router.get('/', (req, res) => {
     User.findAll({
             attributes: { exclude: ['[password'] }
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// Get one user by id
 router.get('/:id', (req, res) => {
     User.findOne({
             attributes: { exclude: ['password'] },
@@ -27,20 +29,7 @@ router.get('/:id', (req, res) => {
                         'water',
                         'date_water'
                     ]
-                },
-
-                // {
-                //     model: Comment,
-                //     attributes: ['id', 'comment_text', 'created_at'],
-                //     include: {
-                //         model: Post,
-                //         attributes: ['title']
-                //     }
-                // },
-                // {
-                //     model: Post,
-                //     attributes: ['title'],
-                // }
+                }
             ]
         })
         .then(dbUserData => {
@@ -56,6 +45,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// create user
 router.post('/', (req, res) => {
 
     User.create({
@@ -81,6 +71,7 @@ router.post('/', (req, res) => {
         });
 });
 
+// login
 router.post('/login', (req, res) => {
     User.findOne({
             where: {
@@ -112,6 +103,7 @@ router.post('/login', (req, res) => {
         });
 });
 
+// logout route
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -122,6 +114,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
+// update user 
 router.put('/:id', (req, res) => {
 
     User.update(req.body, {
@@ -144,6 +137,7 @@ router.put('/:id', (req, res) => {
 
 });
 
+//delete user
 router.delete('/:id', (req, res) => {
     User.destroy({
             where: {

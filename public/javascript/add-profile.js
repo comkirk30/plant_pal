@@ -3,19 +3,18 @@ async function newFormHandler(event) {
 
 
     const name = document.querySelector('input[name="profile-name"]').value;
-    const sunRec = document.querySelector('input[name="plant-sun"]').value;
-    const waterRec = document.querySelector('input[name="plant-water"]').value;
-    const waterDat = document.querySelector('input[name="water-date"]').value;
-    const plant_img = document.querySelector('input[name="plant-img"]').files[0].name;
+    const sunlight = document.getElementById('plant-sun').value;
+    const water = document.getElementById('plant-water').value;
+    const date_water = document.querySelector('input[name="water-date"]').value;
+    //const plant_img = document.querySelector('input[name="plant-img"]').files[0].name;
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/plants`, {
         method: 'POST',
         body: JSON.stringify({
             name,
-            sunRec,
-            waterRec,
-            waterDat,
-            plant_img
+            sunlight,
+            water,
+            date_water
         }),
         headers: { 'Content-Type': 'application/json' }
     });
@@ -27,4 +26,4 @@ async function newFormHandler(event) {
     }
 };
 
-document.querySelector('.new-plant-profile-form').addEventListener('submit', newFormHandler)
+document.querySelector('.new-profile-form').addEventListener('submit', newFormHandler)
