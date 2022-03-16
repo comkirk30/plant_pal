@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Plant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get all plants by that user
 router.get('/', withAuth, (req, res) => {
     Plant.findAll({
             where: {
@@ -17,11 +18,6 @@ router.get('/', withAuth, (req, res) => {
                 // 'plant_img'
             ],
             include: [
-                // {
-                //     model: Category,
-                //     attributes: ['name'],
-
-                // },
                 {
                     model: User,
                     attributes: ['username']
@@ -38,6 +34,7 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+// get one plant to edit
 router.get('/edit/:id', withAuth, (req, res) => {
     Plant.findOne({
             where: {
@@ -49,7 +46,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'sunlight',
                 'water',
                 'date_water',
-                'plant_img'
+                // 'plant_img'
             ],
             include: [{
                     model: User,
@@ -72,10 +69,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 })
 
+// TODO: Can we delete this one??
 router.get('/profile', (req, res) => {
     res.render('new-plant-profile');
 });
 
+// TODO: Can we delete this one?? I think this route exists in home-routes
 router.get('/profile/:id', (req, res) => {
     Plant.findOne({
             where: {
@@ -87,20 +86,12 @@ router.get('/profile/:id', (req, res) => {
             'sunlight',
             'water',
             'date_water',
-            'plant_img'
+            // 'plant_img'
             ],
             include: [{
                     model: User,
                     attributes: ['username']
-                },
-                // {
-                //     model: Comment,
-                //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                //     include: {
-                //         model: User,
-                //         attributes: ['username']
-                //     }
-                // }
+                }
             ]
         })
         .then(dbPlantData => {
@@ -155,6 +146,7 @@ router.get('/profile/:id', (req, res) => {
 //         });
 // })
 
+// dashboard/create to create new plant
 router.get('/create', (req, res) => {
     res.render('new-plant-profile');
 });

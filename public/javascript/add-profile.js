@@ -6,7 +6,7 @@ async function newFormHandler(event) {
     const sunlight = document.getElementById('plant-sun').value;
     const water = document.getElementById('plant-water').value;
     const date_water = document.querySelector('input[name="water-date"]').value;
-    const plant_img = document.querySelector('input[name="plant-img"]').files[0].name;
+    //const plant_img = document.querySelector('input[name="plant-img"]').files[0].name;
 
     const response = await fetch(`/api/plants`, {
         method: 'POST',
@@ -14,8 +14,7 @@ async function newFormHandler(event) {
             name,
             sunlight,
             water,
-            date_water,
-            plant_img
+            date_water
         }),
         headers: { 'Content-Type': 'application/json' }
     });
