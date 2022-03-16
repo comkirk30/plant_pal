@@ -147,7 +147,7 @@ router.get('/profile/:id', (req, res) => {
 // })
 
 // dashboard/create to create new plant
-router.get('/create', (req, res) => {
+router.get('/create', withAuth, (req, res) => {
     res.render('new-plant-profile');
 });
 
