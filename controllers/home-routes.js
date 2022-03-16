@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Plant, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 // get all plants for homepage
 router.get('/', (req, res) => {
@@ -43,12 +44,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/stores', (req, res) => {
+router.get('/stores', withAuth, (req, res) => {
   res.render('search-store', { loggedIn: req.session.loggedIn });
 });
 
 // get a single plant and render single plant page
-router.get('/plants/:id', (req, res) => {
+router.get('/plants/:id', withAuth, (req, res) => {
   Plant.findOne({
     where: {
       id: req.params.id
