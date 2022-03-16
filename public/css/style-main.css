@@ -79,6 +79,26 @@ nav a:hover {
 
 
 .btn-nav {
+  display: flex;
+  color: var(--dark);
+  background-color: var(--test);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border: none;
+}
+
+.btn-nav:hover {
+  color: var(--tertiary);
+  background-color: var(--secondary);  
+  text-decoration: underline;
+}
+
+/* .btn-nav {
   background: none;
   border: none;
   padding: 0;
@@ -87,7 +107,8 @@ nav a:hover {
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
-}
+} */
+
 
 /* LAYOUT */
 /* .container {
