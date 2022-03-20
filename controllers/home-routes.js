@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
       'name',
       'sunlight',
       'water',
-      'date_water',
-      // 'plant_img'
+      'date_water'
 
     ],
     include: [
@@ -59,8 +58,7 @@ router.get('/plants/:id', withAuth, (req, res) => {
       'name',
       'sunlight',
       'water',
-      'date_water',
-      // 'plant_img'
+      'date_water'
     ],
     include: [
       {
