@@ -234,3 +234,11 @@ nav a:hover {
     border: var(--primary) solid 1px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
+
+  .create-form {
+    margin: 20px auto;
+  }
+
+  .create-form-title {
+    text-align: center;
+  }
