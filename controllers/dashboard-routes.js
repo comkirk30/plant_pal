@@ -67,45 +67,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 })
 
-
-router.get('/profile', (req, res) => {
-    res.render('new-plant-profile');
-});
-
-router.get('/profile/:id', (req, res) => {
-    Plant.findOne({
-            where: {
-                id: req.params.id
-            },
-            attributes: ['id',
-            'id',
-            'name',
-            'sunlight',
-            'water',
-            'date_water'
-            ],
-            include: [{
-                    model: User,
-                    attributes: ['username']
-                }
-            ]
-        })
-        .then(dbPlantData => {
-            if (!dbPlantData) {
-                res.status(404).json({ message: 'No plant found with this id' });
-                return;
-            }
-            res.json(dbPlantData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-
+// Create a new plant
 router.get('/create', withAuth, (req, res) => {
-    res.render('new-plant-profile');
+    res.render('new-plant-profile', { loggedIn: req.session.loggedIn });
 });
 
 
