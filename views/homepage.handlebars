@@ -1,7 +1,6 @@
 {{#if loggedIn}}
 <section class="full-width">
-    <!--<a class="add-plant-btn" href="/dashboard/new-plant-profile">Add a New Plant</a>-->
-    {{!-- <button type="submit" class="button-margin"><a class="new-post-button " href="/dashboard/new-profile">Add New Profile</a></button> --}}
+   
 
 <div class="d-flex flex-wrap justify-content-center">
     {{#each plants as |plant|}}
@@ -14,10 +13,9 @@
 
 </section>
     
-{{!-- <script src="/javascript/add-profile.js"></script> --}}
-{{!-- <script src="/javascript/add-post.js"></script> --}}
+
 {{else}}
-    <img src="/images/plantanimation.gif"/>
+    <img src="/img/plantanimation.gif"/>
 {{/if}}
 
 </article>

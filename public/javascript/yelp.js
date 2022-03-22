@@ -1,6 +1,5 @@
 const buttonEl = document.getElementById('button');
 const cityEl = document.getElementById('city');
-//const list1 = document.querySelector('.list-class')
 
 
 
@@ -47,12 +46,6 @@ function listAppend(data) {
 
       listEl.appendChild(li);
       li.appendChild(aText);
-      // li.appendChild(priceEl);
       li.appendChild(ratingImg);
     }
   };
-
-
-  // function reset(){
-  //   list1.textContent = "";
-  // }

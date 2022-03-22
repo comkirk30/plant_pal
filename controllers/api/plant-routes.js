@@ -41,7 +41,6 @@ router.get('/:id', (req, res) => {
       'sunlight',
       'water',
       'date_water',
-      // 'plant_img'
     ],
     include: [
       {
@@ -70,7 +69,6 @@ router.post('/', withAuth, (req, res) => {
     sunlight: req.body.sunlight,
     water: req.body.water,
     date_water: req.body.date_water,
-    // plant_img: req.body.plant_img,
     user_id: req.session.user_id
   })
     .then(dbPlantData => res.json(dbPlantData))
@@ -88,7 +86,6 @@ router.put('/:id', withAuth, (req, res) => {
       sunlight: req.body.sunlight,
       water: req.body.water,
       date_water: req.body.date_water,
-      // plant_img: req.body.plant_img
     },
     {
       where: {

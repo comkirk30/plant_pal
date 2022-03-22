@@ -6,7 +6,6 @@ const plantData = [{
     water: '5 drops daily',
     date_water: 03/08/2022,
     user_id: 1,
-    // category_id: 1,
 },
 {
     name: 'Moira Rose',
@@ -14,7 +13,7 @@ const plantData = [{
     water: '10 drops daily',
     date_water: 03/09/2022,
     user_id: 2,
-    // category_id: 2,
+    
 },
 {
     name: 'Baby Groot',
@@ -22,7 +21,7 @@ const plantData = [{
     water: 'one cup daily',
     date_water: 03/07/2022,
     user_id: 3,
-    // category_id: 3,
+    
 },
 {
     name: 'Katniss Evergreen',
@@ -30,7 +29,7 @@ const plantData = [{
     water: '2 drops daily',
     date_water: 03/05/2022,
     user_id: 4,
-    // category_id: 4,
+    
 },
 {
     name: 'Han Solo',
@@ -38,7 +37,7 @@ const plantData = [{
     water: '2 cups every other day',
     date_water: 03/02/2022,
     user_id: 5,
-    // category_id: 5,
+    
 },
 ];
 

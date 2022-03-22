@@ -98,26 +98,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* .btn-nav {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 100%;
-  transition: color 0.1s;
-  margin-left: 16px;
-} */
-
-
-/* LAYOUT */
-/* .container {
-  display: flex;
-  flex-flow: column wrap;
-  align-content: flex-start;
-  align-items: center;
-} */ 
-
 /*  IMAGE CARDS FOR CAROUSEL */
 .card {
   margin: 20px 10px 0 10px;
@@ -253,4 +233,12 @@ nav a:hover {
     border-radius: 10px;
     border: var(--primary) solid 1px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .create-form {
+    margin: 20px auto;
+  }
+
+  .create-form-title {
+    text-align: center;
   }

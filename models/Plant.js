@@ -44,10 +44,6 @@ Plant.init(
       }
     }
  
-    // plant_img: {
-    //   type: DataTypes.BLOB,
-    //   allowNull: false
-    // }
   },
   {
     sequelize,
